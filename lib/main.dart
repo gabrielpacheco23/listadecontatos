@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listadecontatos/widgets/detalhes.dart';
+import 'package:listadecontatos/widgets/details.dart';
 import 'package:listadecontatos/widgets/list.dart';
 
 void main() => runApp(new MyApp());

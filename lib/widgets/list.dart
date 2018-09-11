@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listadecontatos/models/contact.dart';
-import 'package:listadecontatos/widgets/detalhes.dart';
+import 'package:listadecontatos/widgets/details.dart';
 
 class ContactList extends StatefulWidget {
     @override
