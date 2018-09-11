@@ -9,37 +9,37 @@ class Detail extends StatelessWidget {
     
     Detail({contact}) {
         _contact = contact;
-        _controllerName = new TextEditingController(text: _contact?.name ?? "");
-        _controllerEmail = new TextEditingController(text: _contact?.email ?? "");
-        _controllerTel = new TextEditingController(text: _contact?.tel ?? "");
+        _controllerName = TextEditingController(text: _contact?.name ?? "");
+        _controllerEmail = TextEditingController(text: _contact?.email ?? "");
+        _controllerTel = TextEditingController(text: _contact?.tel ?? "");
     }
 
     @override
     Widget build(BuildContext context) {
-        return new Scaffold(
-            appBar: new AppBar(
-                title: new Text("Detalhes do contato"),
+        return Scaffold(
+            appBar: AppBar(
+                title: Text("Detalhes do contato"),
                 actions: <Widget>[
-                    new IconButton(icon: new Icon(Icons.done, color: Colors.white), 
+                    IconButton(icon: Icon(Icons.done, color: Colors.white), 
                         onPressed: () => _addContact(),)
                 ],
             ),
-            body: new Container(
-                padding: new EdgeInsets.all(15.0),
-                child: new Column(
+            body: Container(
+                padding: EdgeInsets.all(15.0),
+                child: Column(
                     children: <Widget>[
-                        new TextField(
-                            decoration: new InputDecoration(labelText: "Nome"),
+                        TextField(
+                            decoration: InputDecoration(labelText: "Nome"),
                             maxLines: 1,
                             controller: _controllerName
                         ),
-                        new TextField(
-                            decoration: new InputDecoration(labelText: "Email"),
+                        TextField(
+                            decoration: InputDecoration(labelText: "Email"),
                             maxLines: 1,
                             controller: _controllerEmail
                         ),
-                        new TextField(
-                            decoration: new InputDecoration(labelText: "Telefone"),
+                        TextField(
+                            decoration: InputDecoration(labelText: "Telefone"),
                             maxLines: 1,
                             controller: _controllerTel
                         )
@@ -51,7 +51,7 @@ class Detail extends StatelessWidget {
 
     void _addContact() async {
         if(_contact == null) {
-            _contact = new Contact(_controllerName.text, _controllerName.text, _controllerEmail.text);
+            _contact = Contact(_controllerName.text, _controllerName.text, _controllerEmail.text);
         } else {
             _contact.name = _controllerName.text;
             _contact.email = _controllerEmail.text;

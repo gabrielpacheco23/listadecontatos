@@ -8,42 +8,42 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Flutter Contatos',
-      home: new Home(),
+      home: Home(),
     );
   }
 }
 
 class Home extends StatefulWidget {
     @override   
-    createState() => new HomeState();
+    createState() => HomeState();
 }
 
 class HomeState extends State<Home> {
     @override
     Widget build(BuildContext context) {
-        return new Scaffold(
-            appBar: new AppBar(
-                title: new Text("Lista de contatos"),
+        return Scaffold(
+            appBar: AppBar(
+                title: Text("Lista de contatos"),
             ),
-            body: new ContactList(),
-            floatingActionButton: new FloatingActionButton(
-                child: new Icon(Icons.person_add),
+            body: ContactList(),
+            floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.person_add),
                 onPressed: () {
                     _goToContact();
                     print("FloatButton");
                 },
             ),
-            bottomNavigationBar: new BottomNavigationBar(
+            bottomNavigationBar: BottomNavigationBar(
                 items: <BottomNavigationBarItem>[
-                    new BottomNavigationBarItem(
-                        icon: new Icon(Icons.person),
-                        title: new Text("Todos")
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.person),
+                        title: Text("Todos")
                     ),
-                    new BottomNavigationBarItem(
-                        icon: new Icon(Icons.star),
-                        title: new Text("Favoritos"),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.star),
+                        title: Text("Favoritos"),
                     )
                 ]
             ),
@@ -51,8 +51,8 @@ class HomeState extends State<Home> {
     }
 
     void _goToContact() {
-        Navigator.push(context, new MaterialPageRoute(
-            builder: (context) => new Detail()
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => Detail()
         ));
     }
 }
