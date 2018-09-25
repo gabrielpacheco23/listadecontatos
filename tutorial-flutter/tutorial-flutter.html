@@ -1,0 +1,168 @@
+<html>
+
+<head>
+    <title>Tutorial de Flutter - parte 1</title>
+</head>
+
+<body>
+    <h1>Tutorial de Flutter - Parte 1</h1>
+    <h2>Aprenda a fazer mobile apps para iOS e Android usando
+        <span style="color: blue;">Flutter</span>!</h2>
+    <div><img src="flutter_logo.png" style="width: 300px; height 200px;" /></div>
+    <h3>Antes de tudo, o que é Flutter?</h3>
+    <p>Flutter é um framework de desenvolvimento de aplicativos mobile
+        para Android e iOS, compilados em <b>código nativo</b>.<br /></p>
+    <h4>Características:</h4>
+    <ul>
+        <li>Desenvolvimento rápido</li>
+        <p>Flutter possui uma ótima ferramenta para
+            desenvolvimento rápido: <b>hot reload</b>.
+        </p>
+        <br />
+        <li>Interface gráfica expressiva e flexível</li>
+        <p>Envie rapidamente os recursos com foco nas
+            experiências nativas do usuário final. A arquitetura em
+            camadas permite personalização completa,
+            o que resulta em renderização incrivelmente
+            rápida e designs expressivos e flexíveis.
+        </p>
+        <li>Desempenho nativo</li>
+        <p>Os widgets do Flutter incorporam todas as diferenças
+            críticas de plataforma, como rolagem, navegação,
+            ícones e fontes, para fornecer desempenho nativo
+            completo no iOS e no Android.</p>
+    </ul>
+
+    <br />
+    <br />
+    <h2>Instalação</h2>
+    <h3>Instalação no Linux</h3>
+    <h4>Requisitos de Sistema</h4>
+    <p>Para instalar e rodar o Flutter, seu ambiente
+        de desenvolvimento precisa ter no mínimo:</p>
+    <ul>
+        <li>Sistema operacional: Linux (64-bit)</li>
+        <li>Espaço de disco: 600 MB</li>
+        <li>Ferramentas</li>
+        <a>Flutter depende dessas ferramentas
+            de linha de comando disponíveis
+            no seu ambiente de desenvolvimento:
+            <ul>
+                <li><code class="highlighter-rouge" style="background-color: white">bash</code>,
+                    <code class="highlighter-rouge" style="background-color: white">mkdir</code>,
+                    <code class="highlighter-rouge" style="background-color: white">rm</code>,
+                    <code class="highlighter-rouge" style="background-color: white">git</code>,
+                    <code class="highlighter-rouge" style="background-color: white">curl</code>,
+                    <code class="highlighter-rouge" style="background-color: white">unzip</code>,
+                    <code class="highlighter-rouge" style="background-color: white">which</code></li>
+            </ul>
+        </a>
+    </ul>
+    <br />
+    <h4>Download Flutter SDK</h4>
+    <ol>
+        <li>Faça o download do seguinte pacote de instalação para
+            obter a versão beta mais recente do Flutter SDK
+            (para outros canais de lançamento e versões mais
+            antigas, consulte a página de arquivos
+            do <a href="https://flutter.io/sdk-archive/">SDK</a>.):
+        </li>
+        <ul>
+            <li><a href="https://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_v0.8.2-beta.tar.xz">
+                    flutter_linux_v0.8.2-beta.tar.xz</a></li>
+        </ul>
+        <br />
+        <li>Extraia o arquivo no local desejado, por exemplo:
+            <pre><code><span class="noselect">$ </span>cd ~/development
+<span class="noselect">$ </span>tar xf ~/Downloads/<span class="download-latest-link-filename-linux">flutter_linux_v0.8.2-beta.tar.xz</span></code></pre>
+        </li>
+        <li>Adicione o <samp>flutter</samp> ao PATH:
+            <pre><code><span class="noselect">$ </span>export PATH=`pwd`/flutter/bin:$PATH</code></pre>
+        </li>
+    </ol>
+    <p>O comando acima define temporariamente sua variável
+        PATH para a janela do terminal atual.
+        Para adicionar permanentemente o Flutter ao seu
+        PATH, consulte <em>Atualizar seu PATH</em> mais à frente.</p>
+    <p>Agora você está pronto para executar os comandos Flutter!</p>
+    <br />
+    <h3>Execute <samp>'flutter doctor'</samp></h3>
+    <p>Execute o seguinte comando para ver se há alguma dependência que você
+        precisa instalar para concluir a instalação:</p>
+    <pre style="font-size: 14pt;">   <code><span class="noselect">$ </span>flutter doctor</code></pre>
+    <p>Este comando verifica seu ambiente e exibe um relatório
+        para a janela do terminal. O Dart SDK é empacotado com Flutter;
+        não é necessário instalar o Dart separadamente.
+        Verifique cuidadosamente a saída de outro software que você
+        possa precisar instalar ou outras tarefas para executar
+        (mostradas em <strong>negrito</strong>).</p>
+    <p>Por exemplo:</p>
+    <pre>
+    [-] Android toolchain - develop for Android devices
+        • Android SDK at /Users/obiwan/Library/Android/sdk
+        <strong>✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</strong>
+        • Try re-installing or updating your Android SDK,
+          visit https://flutter.io/setup/#android-setup for detailed instructions.
+     </pre>
+    <p>As seções a seguir descrevem como executar
+        essas tarefas e finalizar o processo de instalação.
+    </p>
+    <p>Depois de instalar as dependências ausentes,
+        execute o comando <code class="highlighter-rouge">flutter doctor</code> novamente
+        para verificar se você configurou tudo corretamente.</p>
+    <br />
+    <h3>Atualizar seu PATH</h3>
+    <p>Você pode atualizar sua variável PATH para a sessão atual
+        somente na linha de comando, conforme mostrado
+        em <em>Download Flutter SDK</em>. Você provavelmente desejará
+        atualizar essa variável permanentemente, para poder
+        executar comandos de flutter em qualquer sessão
+        de terminal.</p>
+    <p>As etapas para modificar permanentemente essa variável para
+        todas as sessões de terminal são específicas da máquina.
+        Normalmente, você adiciona uma linha a um arquivo que é
+        executado sempre que você abre uma nova janela.
+        Por exemplo:</p>
+    <ol>
+        <li>Determine o diretório em que você colocou o Flutter SDK. Você precisará disso no Passo 3.</li>
+        <li>Abra (ou crie) <code class="highlighter-rouge">$HOME/.bash_profile</code>. O caminho do arquivo
+            e o nome do arquivo podem ser diferente na sua máquina.
+            <br /> (No Ubuntu 16.04 é o arquivo <code class="highlighter-rouge">$HOME/.bashrc</code>.</li>
+        <li>Adicione a seguinte linha e altere <code class="highlighter-rouge">[PATH_TO_FLUTTER_GIT_DIRECTORY]</code>
+            para o caminho onde você clonou o repositório git do Flutter:</li>
+    </ol>
+    <pre style="font-size: 14pt;">   <code><span class="noselect">$ </span>export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH</code></pre>
+    <br />
+    <ol>
+        <li>
+            <p>Execute o <code class="highlighter-rouge">source $HOME/.bash_profile</code> para atualizar a janela
+                atual.</p>
+        </li>
+        <li>
+            <p>Verifique se o diretório <code class="highlighter-rouge">flutter/bin</code> está agora em seu PATH
+                executando:</p>
+        </li>
+    </ol>
+
+    <pre style="font-size: 14pt;">   <code><span class="noselect">$ </span>echo $PATH</code></pre>
+<h4>Se tudo estiver OK, você está pronto para usar o Flutter!</h4>
+</body>
+<style>
+    h1 {
+        color: blue;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    li {
+        font-size: 14pt;
+    }
+
+    code {
+        background-color: lightblue;
+    }
+</style>
+
+</html>
