@@ -18,10 +18,10 @@ class ContactState extends State<ContactList>{
 
     @override
     Widget build(BuildContext context) {
-        return contactList();
+        return listar();
     }
 
-    Widget contactList() {
+    Widget listar() {
         return Container(
             child: ListView.builder(
                 itemCount: _contacts.length,

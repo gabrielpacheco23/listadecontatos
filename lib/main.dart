@@ -16,43 +16,36 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-    @override   
-    createState() => HomeState();
+  @override
+  createState() => HomeState();
 }
 
 class HomeState extends State<Home> {
-    @override
-    Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                title: Text("Lista de contatos"),
-            ),
-            body: ContactList(),
-            floatingActionButton: FloatingActionButton(
-                child: Icon(Icons.person_add),
-                onPressed: () {
-                    _goToContact();
-                    print("FloatButton");
-                },
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-                items: <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.person),
-                        title: Text("Todos")
-                    ),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.star),
-                        title: Text("Favoritos"),
-                    )
-                ]
-            ),
-        );
-    }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Lista de contatos"),
+      ),
+      body: ContactList(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.person_add),
+        onPressed: () {
+          _goToContact();
+          print("FloatButton");
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("Todos")),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.star),
+          title: Text("Favoritos"),
+        )
+      ]),
+    );
+  }
 
-    void _goToContact() {
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => Detail()
-        ));
-    }
+  void _goToContact() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Detail()));
+  }
 }
