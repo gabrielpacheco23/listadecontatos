@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listadecontatos/models/contact.dart';
+import 'package:listadecontatos/util/requests.dart' as db;
 
 class Detail extends StatelessWidget {
     Contact _contact;
@@ -57,5 +58,8 @@ class Detail extends StatelessWidget {
             _contact.email = _controllerEmail.text;
             _contact.tel = _controllerTel.text;            
         }
+
+        await db.createNew(_contact.name, _contact.email, _contact.tel);
+        print("created.");
     }
 }
