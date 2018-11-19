@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // final url = 'http://localhost:8000';
-final url = '10.0.2.28000';
+final url = '10.0.2.2:8000';
 
 Future<List> getContactList() async {
   try {
