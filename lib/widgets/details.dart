@@ -53,13 +53,14 @@ class Detail extends StatelessWidget {
     void _addContact() async {
         if(_contact == null) {
             _contact = Contact(_controllerName.text, _controllerName.text, _controllerEmail.text);
+            await db.createNew(_contact.name, _contact.email, _contact.tel);
         } else {
             _contact.name = _controllerName.text;
             _contact.email = _controllerEmail.text;
-            _contact.tel = _controllerTel.text;            
+            _contact.tel = _controllerTel.text;
+            await db.createNew(_contact.name, _contact.email, _contact.tel);            
         }
 
-        await db.createNew(_contact.name, _contact.email, _contact.tel);
         print("created.");
     }
 }
