@@ -13,6 +13,7 @@ class Detail extends StatelessWidget {
         // _controllerName = TextEditingController(text: _contact?.name ?? "");
         // _controllerEmail = TextEditingController(text: _contact?.email ?? "");
         // _controllerTel = TextEditingController(text: _contact?.tel ?? "");
+        
     }
 
     @override
