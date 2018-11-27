@@ -12,19 +12,12 @@ class ContactState extends State<ContactList> {
   List<Contact> _contacts = List<Contact>();
 
   ContactState() {
-    // _contacts = [];
-    populateList();
+    _contacts.add(Contact("Teste 1", "12345678", "teste1@teste.com"));
+    _contacts.add(Contact("Teste 2", "5242364", "teste2@teste.com"));
+    _contacts.add(Contact("Teste 3", "98521452", "teste3@teste.com"));
 
-    // _contacts.add(Contact("Teste 1", "12345678", "teste1@teste.com"));
-    // _contacts.add(Contact("Teste 2", "5242364", "teste2@teste.com"));
-    // _contacts.add(Contact("Teste 3", "98521452", "teste3@teste.com"));
+    //populateList();
   }
-
-  // @override
-  // void initState() {
-  //     populateList();
-  //     super.initState();
-  //   }
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +56,10 @@ class ContactState extends State<ContactList> {
     }
 
     setState(() {
-          if((contacts?.length ?? 0) > 0) _contacts = contacts;
-          else _contacts = List<Contact>()..add(Contact("null", "null", "null"));
-        });
-
-
-
+      if((contacts?.length ?? 0) > 0) _contacts = contacts;
+      else _contacts = [];//List<Contact>();..add(Contact("null", "null", "null"));
+    });
   }
+
+
 }

@@ -21,8 +21,10 @@ class Detail extends StatelessWidget {
             appBar: AppBar(
                 title: Text("Detalhes do contato"),
                 actions: <Widget>[
+                    _contact != null ? IconButton(icon: Icon(Icons.more_vert, color:Colors.white),
+                        onPressed: () => _delete(),) : null,
                     IconButton(icon: Icon(Icons.done, color: Colors.white), 
-                        onPressed: () => _addContact(),)
+                        onPressed: () => _addOrUpdate(),)
                 ],
             ),
             body: Container(
@@ -50,7 +52,7 @@ class Detail extends StatelessWidget {
         );
     }
 
-    void _addContact() async {
+    void _addOrUpdate() async {
         if(_contact == null) {
             _contact = Contact(_controllerName.text, _controllerName.text, _controllerEmail.text);
             await db.createNew(_contact.name, _contact.email, _contact.tel);
@@ -58,9 +60,32 @@ class Detail extends StatelessWidget {
             _contact.name = _controllerName.text;
             _contact.email = _controllerEmail.text;
             _contact.tel = _controllerTel.text;
-            await db.createNew(_contact.name, _contact.email, _contact.tel);            
+            // await db.createNew(_contact.name, _contact.email, _contact.tel);   
+
+            var info = {
+              "name": _contact.name,
+              "email": _contact.email,
+              "phone": _contact.tel,
+            };
+
+            db.updateContact(1, info);         
         }
 
         print("created.");
     }
+
+    void _delete() async {
+      if(_contact == null) {
+        return;
+      }
+      else {
+        if(await db.deleteContact(1)) {
+          _controllerName.text = '';
+          _controllerEmail.text = '';
+          _controllerTel.text = '';
+        }
+      }
+    }
 }
+
+
